@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Set.h"
 #include "Criteria_Set.h"
+#include "Intersection_Set.h"
 #include <cstring>
 bool is_bigger_than_5(int n) {
     return n > 5;
@@ -11,24 +12,18 @@ bool s2(std::string s){
 }
 
 int main() {
-//    string_set.add_element("asd");
-//    std::string asd[] = {"asd", "sagd"};
-//    Criteria_Set<std::string> string_set(&s2, 2, asd);
-//    Criteria_Set<int> integers_set(is_bigger_than_5);
-//    integers_set.add_element(67);
-//    integers_set.add_element(6);
-//    integers_set.add_element(672);
-//    integers_set.add_element(467);
-//    integers_set.print();
-//    std::string as;
-//    std::cin >> as;
-//    string_set.add_element(as);
-//    string_set.print();
-//    string_set.get_element_by_id(1);
-//    Criteria_Set<std::string> ss(string_set);
+//    Criteria_Set<int> int_set(&is_bigger_than_5);
+//    int_set.add_element(41);
+//    int_set.add_element(6);
+//    int_set.add_element(41);
+//    int_set.add_element(4114151);
+//    Criteria_Set<int> assa(&is_bigger_than_5);
+//    assa.add_element(51);
+//    assa.add_element(41);
+//    assa.add_element(6);
+//
+//    Intersection_Set<int> ints_intersection(int_set, assa);
+//    int x;
 
-
-//    ss.print();
-    int x;
     return 0;
 }

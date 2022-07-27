@@ -13,10 +13,10 @@ public:
         elements = new T[elements_count];
     };
 
-    Set(T* arr, unsigned int new_el_count) {
+    Set(T *arr, unsigned int new_el_count) {
         elements = new T[new_el_count];
         elements_count = new_el_count;
-        for (int i = 0; i < elements_count; i++){
+        for (int i = 0; i < elements_count; i++) {
             elements[i] = arr[i];
         }
     }
@@ -34,9 +34,14 @@ public:
         delete[] elements;
     };
 
+    unsigned int get_elements_count() { return elements_count; };
+
     T get_element_by_id(unsigned int id) {
-        return (id < elements_count && id >= 0) ? Set<T>::elements[id] : "No element at that index";
+        if (id >= 0 && id < elements_count) {
+            return Set<T>::elements[id];
+        }
     };
+
     void remove_element_at_id(unsigned int id) {
         if (id < 0 || id >= elements_count) {
             std::cout << "No element found at that index";
@@ -47,6 +52,7 @@ public:
         }
         elements_count--;
     }
+
     virtual bool element_belongs_to_set(T new_el) = 0;
 };
 
