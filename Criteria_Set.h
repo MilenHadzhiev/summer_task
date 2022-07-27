@@ -13,30 +13,29 @@ public:
 
     Criteria_Set(bool (*f)(T el)) : Set<T>(), criteria(f) {};
 
-    Criteria_Set(bool (*f)(T el), int new_elements_count, T *new_elements) {
-        Set<T>::elements_count = 0;
-        for (int i = 0; i < new_elements_count; i++) {
-            if (f(new_elements[i])) {
-                Set<T>::elements[Set<T>::elements_count++] = new_elements[i];
-            }
-        }
+    Criteria_Set(bool (*f)(T el), int new_elements_count, T *new_elements) : Set<T>(new_elements, new_elements_count) {
+        criteria = f;
     };
 
-    void print() {
-        for (int i = 0; i < Set<T>::elements_count; i++) {
-            std::cout << Set<T>::elements[i] << std::endl;
-        }
+    Criteria_Set(Criteria_Set<T> &other) : Set<T>(other) {
+        criteria = other.criteria;
+        std::cout << "criteria copy\n";
     }
+
     void add_element(T new_element) {
         if (criteria(new_element)) {
             Set<T>::elements[Set<T>::elements_count++] = new_element;
         }
     };
 
-    T get_element_by_id(unsigned int id) { return Set<T>::elements[id]; };
-
-    // TO DO
-//    bool element_belongs_to_set(T new_el) override { return new_el == 'a'; };
+    bool element_belongs_to_set(T new_el) override {
+        for (int i = 0; i < Set<T>::elements_count; i++) {
+            if (new_el == Set<T>::elements[i]) {
+                return true;
+            }
+        }
+        return false;
+    };
 };
 
 
