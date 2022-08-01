@@ -37,13 +37,13 @@ public:
     unsigned int get_elements_count() { return elements_count; };
 
     T get_element_by_id(unsigned int id) {
-        if (id >= 0 && id < elements_count) {
+        if (id < elements_count) {
             return Set<T>::elements[id];
         }
     };
 
-    void remove_element_at_id(unsigned int id) {
-        if (id < 0 || id >= elements_count) {
+    virtual void remove_element_at_id(unsigned int id) {
+        if (id >= elements_count) {
             std::cout << "No element found at that index";
             return;
         }
