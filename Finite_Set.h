@@ -38,9 +38,15 @@ public:
         return *this;
     }
 
-    void remove_element_at_id(unsigned int id) = delete;
+    void add_element(T new_element) {
+        std::cout << "This set is immutable";
+    }
 
-    bool element_belongs_to_set(T new_el) const override {
+    void remove_element_at_id(unsigned int id) override {
+        std::cout << "This set is immutable";
+    };
+
+    bool element_belongs_to_set(T new_el) override {
         for (int i = 0; i < Set<T>::elements_count; i++) {
             if (new_el == Set<T>::elements[i]) {
                 return true;

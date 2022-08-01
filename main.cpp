@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Set.h"
 #include "Criteria_Set.h"
+#include "Finite_Set.h"
 #include <cstring>
 
 bool is_bigger_than_5(int n) {
@@ -24,6 +25,7 @@ int main() {
 //
 //    Intersection_Set<int> ints_intersection(int_set, assa);
 //    int x;
+
 
     return 0;
 }

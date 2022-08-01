@@ -22,11 +22,6 @@ public:
         std::cout << "criteria copy\n";
     }
 
-    void add_element(T new_element) {
-        if (criteria(new_element)) {
-            Set<T>::elements[Set<T>::elements_count++] = new_element;
-        }
-    };
 
     bool element_belongs_to_set(T new_el) override {
         for (int i = 0; i < Set<T>::elements_count; i++) {

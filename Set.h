@@ -5,8 +5,8 @@ template<typename T>
 class Set {
 protected:
     unsigned int elements_count;
-public:
     T *elements;
+public:
 
     Set() {
         elements_count = 0;
@@ -29,6 +29,12 @@ public:
         }
 
     }
+
+    virtual void add_element(T new_element) {
+        if (criteria(new_element)) {
+            elements[elements_count++] = new_element;
+        }
+    };
 
     ~Set() {
         delete[] elements;
