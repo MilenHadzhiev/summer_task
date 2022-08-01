@@ -1,8 +1,8 @@
 #include <iostream>
 #include "Set.h"
 #include "Criteria_Set.h"
-#include "Intersection_Set.h"
 #include <cstring>
+
 bool is_bigger_than_5(int n) {
     return n > 5;
 }

@@ -28,9 +28,12 @@ public:
         }
     }
 
-    Finite_Set& operator=(Finite_Set<T> other) {
-        std::swap(Set<T>::elements_count, other.elements_count);
-        std::swap(Set<T>::elements, other.elements);
+    Finite_Set& operator=(Finite_Set<T> const &other) {
+        Set<T>::elements_count = other.elements_count;
+        Set<T>::elements = new T[Set<T>::elements_count];
+        for (int i = 0; i < Set<T>::elements_count; i++) {
+            Set<T>::elements[i] = other.get_element_by_id(i);
+        }
         return *this;
     }
 
