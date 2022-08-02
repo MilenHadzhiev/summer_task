@@ -48,6 +48,10 @@ public:
         }
     };
 
+    virtual void add_element(T& new_element) {
+        elements[elements_count++] = new_element;
+    }
+
     virtual void remove_element_at_id(unsigned int id) {
         if (id >= elements_count) {
             std::cout << "No element found at that index";

@@ -2,10 +2,15 @@
 #include "Set.h"
 #include "Criteria_Set.h"
 #include "Finite_Set.h"
+#include "Union_Set.h"
 #include <cstring>
 
 bool is_bigger_than_5(int n) {
     return n > 5;
+}
+
+bool is_even(int n) {
+    return !(n % 2);
 }
 
 bool s2(std::string s){
