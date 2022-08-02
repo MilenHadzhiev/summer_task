@@ -28,7 +28,7 @@ public:
         }
     }
 
-    bool element_belongs_to_set(T new_el) override {
+    bool element_belongs_to_set(T &new_el) override {
         for (int i = 0; i < Set<T>::elements_count; i++) {
             if (new_el == Set<T>::elements[i]) {
                 return true;

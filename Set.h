@@ -38,15 +38,17 @@ public:
         delete[] elements;
     };
 
-    unsigned int get_elements_count() { return elements_count; };
+    unsigned int get_elements_count() const { return elements_count; };
 
-    T get_element_by_id(unsigned int id) {
+    // if id is out of range -> return the first element
+    T &get_element_by_id(unsigned int id) const {
         if (id < elements_count) {
             return Set<T>::elements[id];
         }
+        return Set<T>::elements[0];
     };
 
-    virtual void add_element(T& new_element) {
+    virtual void add_element(T &new_element) {
         elements[elements_count++] = new_element;
     }
 
@@ -61,7 +63,7 @@ public:
         elements_count--;
     }
 
-    virtual bool element_belongs_to_set(T new_el) = 0;
+    virtual bool element_belongs_to_set(T &new_el) = 0;
 };
 
 
