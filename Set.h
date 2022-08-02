@@ -31,9 +31,7 @@ public:
     }
 
     virtual void add_element(T new_element) {
-        if (criteria(new_element)) {
-            elements[elements_count++] = new_element;
-        }
+        elements[elements_count++] = new_element;
     };
 
     ~Set() {

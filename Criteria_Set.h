@@ -22,7 +22,7 @@ public:
         std::cout << "criteria copy\n";
     }
 
-    void add_element(T& new_element) override {
+    void add_element(T new_element) override {
         if(criteria(new_element)) {
             Set<T>::elements[Set<T>::elements_count++] = new_element;
         }
