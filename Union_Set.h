@@ -72,13 +72,6 @@ public:
         copy_set_elements(second_set);
     }
 
-    ~Union_Set() {
-        for (int i = 0; i < criteria_count; i++) {
-            delete[] criteria_arr[i];
-        }
-        delete[] criteria_arr;
-    }
-
     bool element_belongs_to_set(T &new_el) {
         for (int i = 0; i < Set<T>::elements_count; i++) {
             if (new_el == Set<T>::elements[i]) {

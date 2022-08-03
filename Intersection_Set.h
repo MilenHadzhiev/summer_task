@@ -278,12 +278,7 @@ public:
 //
 //    Intersection_Set(Union_Set<T> &first_set, Intersection_Set<T> &second_set) {}
 
-    ~Intersection_Set() {
-        for (int i = 0; i < criteria_count; i++) {
-            delete[] criteria_arr[i];
-        }
-        delete[] criteria_arr;
-    }
+
     bool element_belongs_to_set(T &new_el) override {
         for (int i = 0; i < Set<T>::elements_count; i++) {
             if (new_el == Set<T>::elements[i]) {
