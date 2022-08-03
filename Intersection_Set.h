@@ -62,7 +62,7 @@ public:
         }
     }
 
-    Intersection_Set(Finite_Set<T> &first_set, Union_Set<T> &second_set) {}
+//    Intersection_Set(Finite_Set<T> &first_set, Union_Set<T> &second_set) {}
 
     Intersection_Set(Finite_Set<T> &first_set, Intersection_Set<T> &second_set) {
         int n = first_set.get_elements_count();
