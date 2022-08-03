@@ -4,6 +4,7 @@
 #include "Set.h"
 #include "Finite_Set.h"
 #include "Criteria_Set.h"
+#include "Intersection_Set.h"
 
 template<typename T>
 class Union_Set : public Set<T> {
@@ -69,6 +70,13 @@ public:
         }
         copy_set_elements(first_set);
         copy_set_elements(second_set);
+    }
+
+    ~Union_Set() {
+        for (int i = 0; i < criteria_count; i++) {
+            delete[] criteria_arr[i];
+        }
+        delete[] criteria_arr;
     }
 
     bool element_belongs_to_set(T &new_el) {

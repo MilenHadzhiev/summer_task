@@ -8,6 +8,8 @@ using predicate = bool(T el);
 
 template<typename T>
 class Criteria_Set : public Set<T> {
+// Sets, who include criteria are infinite only when both elements_count = 0 and criteria_count > 0
+// when both elements_count = 0 and criteria_count = 0 => the set is empty
 public:
     predicate<T> *criteria;
 
@@ -26,6 +28,10 @@ public:
         if(criteria(new_element)) {
             Set<T>::elements[Set<T>::elements_count++] = new_element;
         }
+    }
+
+    ~Criteria_Set() {
+        delete[] criteria;
     }
 
     bool element_belongs_to_set(T &new_el) override {

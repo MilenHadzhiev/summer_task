@@ -4,8 +4,8 @@
 template<typename T>
 class Set {
 protected:
-    unsigned int elements_count;
-    T *elements;
+    unsigned int elements_count = 0;
+    T *elements = new T[elements_count];
 public:
 
     Set() {
