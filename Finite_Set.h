@@ -38,7 +38,7 @@ public:
         return *this;
     }
 
-    void add_element(T new_element) {
+    void add_element(T &new_element) override {
         std::cout << "This set is immutable";
     }
 
@@ -46,7 +46,7 @@ public:
         std::cout << "This set is immutable";
     };
 
-    bool element_belongs_to_set(T new_el) override {
+    bool element_belongs_to_set(T &new_el) override {
         for (int i = 0; i < Set<T>::elements_count; i++) {
             if (new_el == Set<T>::elements[i]) {
                 return true;

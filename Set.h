@@ -30,15 +30,15 @@ public:
 
     }
 
-    virtual void add_element(T new_element) {
-        elements[elements_count++] = new_element;
-    };
-
     ~Set() {
         delete[] elements;
     };
 
     unsigned int get_elements_count() const { return elements_count; };
+
+    virtual void add_element(T &new_element) {
+        elements[elements_count++] = new_element;
+    };
 
     // if id is out of range -> return the first element
     T &get_element_by_id(unsigned int id) const {
@@ -48,9 +48,6 @@ public:
         return Set<T>::elements[0];
     };
 
-    virtual void add_element(T &new_element) {
-        elements[elements_count++] = new_element;
-    }
 
     virtual void remove_element_at_id(unsigned int id) {
         if (id >= elements_count) {
