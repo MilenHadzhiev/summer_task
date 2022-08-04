@@ -37,11 +37,50 @@ public:
         copy_set_elements(second_set);
     }
 
+    Union_Set(Finite_Set<T> &first_set, Intersection_Set<T> &second_set) {
+        int ss_cc = second_set.criteria_count;
+        for (int i = 0; i < ss_cc; i++) {
+            criteria_arr[criteria_count++] = second_set.criteria_arr[i];
+        }
+        copy_set_elements(first_set);
+    }
+
     Union_Set(Criteria_Set<T> &first_set, Criteria_Set<T> &second_set) {
         criteria_arr[criteria_count++] = first_set.criteria;
         criteria_arr[criteria_count++] = second_set.criteria;
         copy_set_elements(first_set);  // for some stupid reason second_set.elements_count changes when
         copy_set_elements(second_set); // copy_set_elements is invoked the first time
+    }
+
+    Union_Set(Criteria_Set<T> &first_set, Intersection_Set<T> &second_set) {
+        criteria_arr[criteria_count++] = first_set.criteria;
+        for (int i = 0; i < second_set.criteria_count; i++) {
+            criteria_arr[criteria_count++] = second_set.criteria_arr[i];
+        }
+        copy_set_elements(first_set);
+        copy_set_elements(second_set);
+    }
+
+    Union_Set(Union_Set<T> &first_set, Intersection_Set<T> &second_set) {
+        for (int i = 0; i < first_set.criteria_count; i++) {
+            criteria_arr[criteria_count++] = first_set.criteria_arr[i];
+        }
+        for (int i = 0; i < second_set.criteria_count; i++) {
+            criteria_arr[criteria_count++] = second_set.criteria_arr[i];
+        }
+        copy_set_elements(first_set);
+        copy_set_elements(second_set);
+    }
+
+    Union_Set(Intersection_Set<T> &first_set, Intersection_Set<T> &second_set) {
+        for (int i = 0; i < first_set.criteria_count; i++) {
+            criteria_arr[criteria_count++] = first_set.criteria_arr[i];
+        }
+        for (int i = 0; i < second_set.criteria_count; i++) {
+            criteria_arr[criteria_count++] = second_set.criteria_arr[i];
+        }
+        copy_set_elements(first_set);
+        copy_set_elements(second_set);
     }
 
     Union_Set(Union_Set<T> &first_set, Criteria_Set<T> &second_set) {
